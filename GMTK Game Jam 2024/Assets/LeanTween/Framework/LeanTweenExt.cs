@@ -38,14 +38,14 @@ public static class LeanTweenExt
     //LeanTween.isTweening
     public static bool LeanIsTweening(this GameObject gameObject) { return LeanTween.isTweening(gameObject); }
     //LeanTween.isTweening
-    //LeanTween.move
+    //LeanTween.moveing
     public static LTDescr LeanMove(this GameObject gameObject, Vector3 to, float time) { return LeanTween.move(gameObject, to, time); }
     public static LTDescr LeanMove(this Transform transform, Vector3 to, float time) { return LeanTween.move(transform.gameObject, to, time); }
     public static LTDescr LeanMove(this RectTransform rectTransform, Vector3 to, float time) { return LeanTween.move(rectTransform, to, time); }
-    //LeanTween.move
+    //LeanTween.moveing
     public static LTDescr LeanMove(this GameObject gameObject, Vector2 to, float time) { return LeanTween.move(gameObject, to, time); }
     public static LTDescr LeanMove(this Transform transform, Vector2 to, float time) { return LeanTween.move(transform.gameObject, to, time); }
-    //LeanTween.move
+    //LeanTween.moveing
     public static LTDescr LeanMove(this GameObject gameObject, Vector3[] to, float time) { return LeanTween.move(gameObject, to, time); }
     public static LTDescr LeanMove(this GameObject gameObject, LTBezierPath to, float time) { return LeanTween.move(gameObject, to, time); }
     public static LTDescr LeanMove(this GameObject gameObject, LTSpline to, float time) { return LeanTween.move(gameObject, to, time); }

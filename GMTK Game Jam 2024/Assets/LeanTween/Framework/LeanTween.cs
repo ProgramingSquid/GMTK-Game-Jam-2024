@@ -526,7 +526,7 @@ public class LeanTween : MonoBehaviour {
     * @method LeanTween.cancel 
     * @param {GameObject} gameObject:GameObject gameObject whose tweens you wish to cancel
     * @param {bool} callOnComplete:bool (optional) whether to call the onComplete method before canceling
-    * @example LeanTween.move( gameObject, new Vector3(0f,1f,2f), 1f); <br />
+    * @example LeanTween.moveing( gameObject, new Vector3(0f,1f,2f), 1f); <br />
     * LeanTween.cancel( gameObject );
     */
     public static void cancel( GameObject gameObject ){
@@ -591,7 +591,7 @@ public class LeanTween : MonoBehaviour {
     * @method LeanTween.cancel
     * @param {int} id:int unique id that represents that tween
     * @param {bool} callOnComplete:bool (optional) whether to call the onComplete method before canceling
-    * @example int id = LeanTween.move( gameObject, new Vector3(0f,1f,2f), 1f).id; <br />
+    * @example int id = LeanTween.moveing( gameObject, new Vector3(0f,1f,2f), 1f).id; <br />
     * LeanTween.cancel( id );
     */
     public static void cancel( int uniqueId ){
@@ -633,7 +633,7 @@ public class LeanTween : MonoBehaviour {
     * 
     * @method LeanTween.descr
     * @param {int} id:int unique id that represents that tween
-    * @example int id = LeanTween.move( gameObject, new Vector3(0f,1f,2f), 1f).setOnComplete( oldMethod ).id; <br /><br />
+    * @example int id = LeanTween.moveing( gameObject, new Vector3(0f,1f,2f), 1f).setOnComplete( oldMethod ).id; <br /><br />
     * <div style="color:gray">// later I want decide I want to change onComplete method </div>
     * LTDescr descr = LeanTween.descr( id );<br />
     * if(descr!=null) <span style="color:gray">// if the tween has already finished it will come back null</span><br />
@@ -667,7 +667,7 @@ public class LeanTween : MonoBehaviour {
     * 
     * @method LeanTween.descriptions
     * @param {GameObject} id:GameObject object whose tween descriptions you want to retrieve
-    * @example LeanTween.move( gameObject, new Vector3(0f,1f,2f), 1f).setOnComplete( oldMethod ); <br /><br />
+    * @example LeanTween.moveing( gameObject, new Vector3(0f,1f,2f), 1f).setOnComplete( oldMethod ); <br /><br />
     * <div style="color:gray">// later I want decide I want to change onComplete method </div>
     * LTDescr[] descr = LeanTween.descriptions( gameObject );<br />
     * if(descr.Length>0) <span style="color:gray">// make sure there is a valid description for this target</span><br />
@@ -1049,7 +1049,7 @@ public class LeanTween : MonoBehaviour {
     * seq.add( () => { // fire an event before start<br />
     * &#160;Debug.Log("I have started");<br />
     * });<br />
-    * seq.add( LeanTween.move(cube1, Vector3.one * 10f, 1f) ); // do a tween<br />
+    * seq.add( LeanTween.moveing(cube1, Vector3.one * 10f, 1f) ); // do a tween<br />
     * seq.add( () => { // fire event after tween<br />
     * &#160;Debug.Log("We are done now");<br />
     * });;<br />
@@ -1256,12 +1256,12 @@ public class LeanTween : MonoBehaviour {
     /**
     * <summary>Move a GameObject to a certain location</summary>
     * 
-    * @method LeanTween.move
-    * @param {GameObject} gameObject:GameObject Gameobject that you wish to move
-    * @param {Vector3} vec:Vector3 to The final positin with which to move to
+    * @method LeanTween.moveing
+    * @param {GameObject} gameObject:GameObject Gameobject that you wish to moveing
+    * @param {Vector3} vec:Vector3 to The final positin with which to moveing to
     * @param {float} time:float time The time to complete the tween in
     * @return {LTDescr} LTDescr an object that distinguishes the tween
-    * @example LeanTween.move(gameObject, new Vector3(0f,-3f,5f), 2.0f) .setEase( LeanTweenType.easeOutQuad );
+    * @example LeanTween.moveing(gameObject, new Vector3(0f,-3f,5f), 2.0f) .setEase( LeanTweenType.easeOutQuad );
     */
     public static LTDescr move(GameObject gameObject, Vector3 to, float time){
         return pushNewTween( gameObject, to, time, options().setMove() );
@@ -1274,16 +1274,16 @@ public class LeanTween : MonoBehaviour {
     /**
     * <summary>Move a GameObject along a set of bezier curves</summary>
     * 
-    * @method LeanTween.move
-    * @param {GameObject} gameObject:GameObject Gameobject that you wish to move
+    * @method LeanTween.moveing
+    * @param {GameObject} gameObject:GameObject Gameobject that you wish to moveing
     * @param {Vector3[]} path:Vector3[] A set of points that define the curve(s) ex: Point1,Handle2,Handle1,Point2,...
     * @param {float} time:float The time to complete the tween in
     * @return {LTDescr} LTDescr an object that distinguishes the tween
     * @example
     * <i>Javascript:</i><br />
-    * LeanTween.move(gameObject, [Vector3(0,0,0),Vector3(1,0,0),Vector3(1,0,0),Vector3(1,0,1)], 2.0) .setEase(LeanTweenType.easeOutQuad).setOrientToPath(true);<br /><br />
+    * LeanTween.moveing(gameObject, [Vector3(0,0,0),Vector3(1,0,0),Vector3(1,0,0),Vector3(1,0,1)], 2.0) .setEase(LeanTweenType.easeOutQuad).setOrientToPath(true);<br /><br />
     * <i>C#:</i><br />
-    * LeanTween.move(gameObject, new Vector3[]{new Vector3(0f,0f,0f),new Vector3(1f,0f,0f),new Vector3(1f,0f,0f),new Vector3(1f,0f,1f)}, 1.5f).setEase(LeanTweenType.easeOutQuad).setOrientToPath(true);;<br />
+    * LeanTween.moveing(gameObject, new Vector3[]{new Vector3(0f,0f,0f),new Vector3(1f,0f,0f),new Vector3(1f,0f,0f),new Vector3(1f,0f,1f)}, 1.5f).setEase(LeanTweenType.easeOutQuad).setOrientToPath(true);;<br />
     */  
     public static LTDescr move(GameObject gameObject, Vector3[] to, float time){
         d = options().setMoveCurved();
@@ -1313,7 +1313,7 @@ public class LeanTween : MonoBehaviour {
     * <summary>Move a GameObject through a set of points</summary>
     * 
     * @method LeanTween.moveSpline
-    * @param {GameObject} gameObject:GameObject Gameobject that you wish to move
+    * @param {GameObject} gameObject:GameObject Gameobject that you wish to moveing
     * @param {Vector3[]} path:Vector3[] A set of points that define the curve(s) ex: ControlStart,Pt1,Pt2,Pt3,.. ..ControlEnd<br />Note: The first and last item just define the angle of the end points, they are not actually used in the spline path itself. If you do not care about the angle you can jus set the first two items and last two items as the same value.
     * @param {float} time:float The time to complete the tween in
     * @return {LTDescr} LTDescr an object that distinguishes the tween
@@ -1334,8 +1334,8 @@ public class LeanTween : MonoBehaviour {
     * <summary>Move a GameObject through a set of points</summary>
     * 
     * @method LeanTween.moveSpline
-    * @param {GameObject} gameObject:GameObject Gameobject that you wish to move
-    * @param {LTSpline} spline:LTSpline pass a pre-existing LTSpline for the object to move along
+    * @param {GameObject} gameObject:GameObject Gameobject that you wish to moveing
+    * @param {LTSpline} spline:LTSpline pass a pre-existing LTSpline for the object to moveing along
     * @param {float} time:float The time to complete the tween in
     * @return {LTDescr} LTDescr an object that distinguishes the tween
     * @example
@@ -1355,7 +1355,7 @@ public class LeanTween : MonoBehaviour {
     * <summary>Move a GameObject through a set of points, in local space</summary>
     * 
     * @method LeanTween.moveSplineLocal
-    * @param {GameObject} gameObject:GameObject Gameobject that you wish to move
+    * @param {GameObject} gameObject:GameObject Gameobject that you wish to moveing
     * @param {Vector3[]} path:Vector3[] A set of points that define the curve(s) ex: ControlStart,Pt1,Pt2,Pt3,.. ..ControlEnd
     * @param {float} time:float The time to complete the tween in
     * @return {LTDescr} LTDescr an object that distinguishes the tween
@@ -1375,9 +1375,9 @@ public class LeanTween : MonoBehaviour {
     /**
     * <summary>Move a GUI Element to a certain location</summary>
     * 
-    * @method LeanTween.move (GUI)
-    * @param {LTRect} ltRect:LTRect ltRect LTRect object that you wish to move
-    * @param {Vector2} vec:Vector2 to The final position with which to move to (pixel coordinates)
+    * @method LeanTween.moveing (GUI)
+    * @param {LTRect} ltRect:LTRect ltRect LTRect object that you wish to moveing
+    * @param {Vector2} vec:Vector2 to The final position with which to moveing to (pixel coordinates)
     * @param {float} time:float time The time to complete the tween in
     * @return {LTDescr} LTDescr an object that distinguishes the tween
     */
@@ -1393,9 +1393,9 @@ public class LeanTween : MonoBehaviour {
     * <summary>Move a GameObject along the x-axis</summary>
     * 
     * @method LeanTween.moveX
-    * @param {GameObject} gameObject:GameObject gameObject Gameobject that you wish to move
-    * @param {float} to:float to The final position with which to move to
-    * @param {float} time:float time The time to complete the move in
+    * @param {GameObject} gameObject:GameObject gameObject Gameobject that you wish to moveing
+    * @param {float} to:float to The final position with which to moveing to
+    * @param {float} time:float time The time to complete the moveing in
     * @return {LTDescr} LTDescr an object that distinguishes the tween
     */
     public static LTDescr moveX(GameObject gameObject, float to, float time){
@@ -1406,9 +1406,9 @@ public class LeanTween : MonoBehaviour {
     * <summary>Move a GameObject along the y-axis</summary>
     * 
     * @method LeanTween.moveY
-    * @param {GameObject} GameObject gameObject Gameobject that you wish to move
-    * @param {float} float to The final position with which to move to
-    * @param {float} float time The time to complete the move in
+    * @param {GameObject} GameObject gameObject Gameobject that you wish to moveing
+    * @param {float} float to The final position with which to moveing to
+    * @param {float} float time The time to complete the moveing in
     * @return {LTDescr} LTDescr an object that distinguishes the tween
     */
     public static LTDescr moveY(GameObject gameObject, float to, float time){
@@ -1419,9 +1419,9 @@ public class LeanTween : MonoBehaviour {
     * <summary>Move a GameObject along the z-axis</summary>
     * 
     * @method LeanTween.moveZ
-    * @param {GameObject} GameObject gameObject Gameobject that you wish to move
-    * @param {float} float to The final position with which to move to
-    * @param {float} float time The time to complete the move in
+    * @param {GameObject} GameObject gameObject Gameobject that you wish to moveing
+    * @param {float} float to The final position with which to moveing to
+    * @param {float} float time The time to complete the moveing in
     * @return {LTDescr} LTDescr an object that distinguishes the tween
     */
     public static LTDescr moveZ(GameObject gameObject, float to, float time){
@@ -1433,7 +1433,7 @@ public class LeanTween : MonoBehaviour {
     * 
     * @method LeanTween.moveLocal
     * @param {GameObject} GameObject gameObject Gameobject that you wish to rotate
-    * @param {Vector3} Vector3 to The final positin with which to move to
+    * @param {Vector3} Vector3 to The final positin with which to moveing to
     * @param {float} float time The time to complete the tween in
     * @return {LTDescr} LTDescr an object that distinguishes the tween
     */
@@ -1445,7 +1445,7 @@ public class LeanTween : MonoBehaviour {
     * <summary>Move a GameObject along a set of bezier curves, in local space</summary>
     * 
     * @method LeanTween.moveLocal
-    * @param {GameObject} gameObject:GameObject Gameobject that you wish to move
+    * @param {GameObject} gameObject:GameObject Gameobject that you wish to moveing
     * @param {Vector3[]} path:Vector3[] A set of points that define the curve(s) ex: Point1,Handle1,Handle2,Point2,...
     * @param {float} time:float The time to complete the tween in
     * @return {LTDescr} LTDescr an object that distinguishes the tween
@@ -1493,12 +1493,12 @@ public class LeanTween : MonoBehaviour {
     /**
     * <summary>Move a GameObject to another transform</summary>
     * 
-    * @method LeanTween.move
-    * @param {GameObject} gameObject:GameObject Gameobject that you wish to move
+    * @method LeanTween.moveing
+    * @param {GameObject} gameObject:GameObject Gameobject that you wish to moveing
     * @param {Transform} destination:Transform Transform whose position the tween will finally end on
     * @param {float} time:float time The time to complete the tween in
     * @return {LTDescr} LTDescr an object that distinguishes the tween
-    * @example LeanTween.move(gameObject, anotherTransform, 2.0f) .setEase( LeanTweenType.easeOutQuad );
+    * @example LeanTween.moveing(gameObject, anotherTransform, 2.0f) .setEase( LeanTweenType.easeOutQuad );
     */
     public static LTDescr move(GameObject gameObject, Transform to, float time){
         return pushNewTween(gameObject, Vector3.zero, time, options().setTo(to).setMoveToTransform() );
@@ -1640,7 +1640,7 @@ public class LeanTween : MonoBehaviour {
     * <summary>Scale a GUI Element to a certain width and height</summary>
     * 
     * @method LeanTween.scale (GUI)
-    * @param {LTRect} LTRect ltRect LTRect object that you wish to move
+    * @param {LTRect} LTRect ltRect LTRect object that you wish to moveing
     * @param {Vector2} Vector2 to The final width and height to scale to (pixel based)
     * @param {float} float time The time to complete the tween in
     * @return {LTDescr} LTDescr an object that distinguishes the tween
@@ -1957,12 +1957,12 @@ public class LeanTween : MonoBehaviour {
     /**
     * <summary>Move a RectTransform object (used in Unity GUI in 4.6+, for Buttons, Panel, Scrollbar, etc...)</summary>
     * 
-    * @method LeanTween.move (RectTransform)
+    * @method LeanTween.moveing (RectTransform)
     * @param {RectTransform} rectTrans:RectTransform RectTransform that you wish to attach the tween to
     * @param {Vector3} to:Vector3 The final Vector3 with which to tween to
     * @param {float} time:float The time to complete the tween in
     * @return {LTDescr} LTDescr an object that distinguishes the tween
-    * @example LeanTween.move(gameObject.GetComponent&lt;RectTransform&gt;(), new Vector3(200f,-100f,0f), 1f).setDelay(1f);
+    * @example LeanTween.moveing(gameObject.GetComponent&lt;RectTransform&gt;(), new Vector3(200f,-100f,0f), 1f).setDelay(1f);
     */
     public static LTDescr move(RectTransform rectTrans, Vector3 to, float time){
         return pushNewTween( rectTrans.gameObject, to, time, options().setCanvasMove().setRect( rectTrans ) );
@@ -2950,7 +2950,7 @@ public class LTBezier {
 * <img src="http://dentedpixel.com/assets/LTBezierExplanation.gif" width="413" height="196" style="margin-top:10px" />
 * @example 
 * LTBezierPath ltPath = new LTBezierPath( new Vector3[] { new Vector3(0f,0f,0f),new Vector3(1f,0f,0f), new Vector3(1f,0f,0f), new Vector3(1f,1f,0f)} );<br /><br />
-* LeanTween.move(lt, ltPath.vec3, 4.0f).setOrientToPath(true).setDelay(1f).setEase(LeanTweenType.easeInOutQuad); // animate <br />
+* LeanTween.moveing(lt, ltPath.vec3, 4.0f).setOrientToPath(true).setDelay(1f).setEase(LeanTweenType.easeInOutQuad); // animate <br />
 * Vector3 pt = ltPath.point( 0.6f ); // retrieve a point along the path
 */
 public class LTBezierPath {

@@ -53,6 +53,15 @@ public partial class @Input : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Move"",
+                    ""type"": ""Value"",
+                    ""id"": ""0c088070-0c33-4624-a492-3484d9313d42"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -88,6 +97,39 @@ public partial class @Input : IInputActionCollection2, IDisposable
                     ""action"": ""Dash"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""WASD"",
+                    ""id"": ""09e2076c-7c6e-46c2-b744-14bc5c2c6142"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""2c5a64ce-a1b4-4c1d-8ef5-e708d8bf9791"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""33d5ce45-bc6f-4a86-83ea-a9856193a380"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         },
@@ -615,6 +657,7 @@ public partial class @Input : IInputActionCollection2, IDisposable
         m_Movment_Aim = m_Movment.FindAction("Aim", throwIfNotFound: true);
         m_Movment_Fly = m_Movment.FindAction("Fly", throwIfNotFound: true);
         m_Movment_Dash = m_Movment.FindAction("Dash", throwIfNotFound: true);
+        m_Movment_Move = m_Movment.FindAction("Move", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -689,6 +732,7 @@ public partial class @Input : IInputActionCollection2, IDisposable
     private readonly InputAction m_Movment_Aim;
     private readonly InputAction m_Movment_Fly;
     private readonly InputAction m_Movment_Dash;
+    private readonly InputAction m_Movment_Move;
     public struct MovmentActions
     {
         private @Input m_Wrapper;
@@ -696,6 +740,7 @@ public partial class @Input : IInputActionCollection2, IDisposable
         public InputAction @Aim => m_Wrapper.m_Movment_Aim;
         public InputAction @Fly => m_Wrapper.m_Movment_Fly;
         public InputAction @Dash => m_Wrapper.m_Movment_Dash;
+        public InputAction @Move => m_Wrapper.m_Movment_Move;
         public InputActionMap Get() { return m_Wrapper.m_Movment; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -714,6 +759,9 @@ public partial class @Input : IInputActionCollection2, IDisposable
                 @Dash.started -= m_Wrapper.m_MovmentActionsCallbackInterface.OnDash;
                 @Dash.performed -= m_Wrapper.m_MovmentActionsCallbackInterface.OnDash;
                 @Dash.canceled -= m_Wrapper.m_MovmentActionsCallbackInterface.OnDash;
+                @Move.started -= m_Wrapper.m_MovmentActionsCallbackInterface.OnMove;
+                @Move.performed -= m_Wrapper.m_MovmentActionsCallbackInterface.OnMove;
+                @Move.canceled -= m_Wrapper.m_MovmentActionsCallbackInterface.OnMove;
             }
             m_Wrapper.m_MovmentActionsCallbackInterface = instance;
             if (instance != null)
@@ -727,6 +775,9 @@ public partial class @Input : IInputActionCollection2, IDisposable
                 @Dash.started += instance.OnDash;
                 @Dash.performed += instance.OnDash;
                 @Dash.canceled += instance.OnDash;
+                @Move.started += instance.OnMove;
+                @Move.performed += instance.OnMove;
+                @Move.canceled += instance.OnMove;
             }
         }
     }
@@ -841,6 +892,7 @@ public partial class @Input : IInputActionCollection2, IDisposable
         void OnAim(InputAction.CallbackContext context);
         void OnFly(InputAction.CallbackContext context);
         void OnDash(InputAction.CallbackContext context);
+        void OnMove(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

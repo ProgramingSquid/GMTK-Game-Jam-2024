@@ -1214,7 +1214,7 @@ public class LTDescr
 	* @param {Vector3} axis either the tween rotates around, or the direction it faces in the case of setOrientToPath
 	* @return {LTDescr} LTDescr an object that distinguishes the tween
 	* @example
-	* LeanTween.move( ltLogo, path, 1.0f ).setEase(LeanTweenType.easeOutQuad).setOrientToPath(true).setAxis(Vector3.forward);
+	* LeanTween.moveing( ltLogo, path, 1.0f ).setEase(LeanTweenType.easeOutQuad).setOrientToPath(true).setAxis(Vector3.forward);
 	*/
 	public LTDescr setAxis( Vector3 axis ){
 		this._optional.axis = axis;
@@ -1707,7 +1707,7 @@ public class LTDescr
 	* @param {Vector3} to:Vector3 point at which you want the tween to reach
 	* @return {LTDescr} LTDescr an object that distinguishes the tween
 	* @example
-	* LTDescr descr = LeanTween.move( cube, Vector3.up, new Vector3(1f,3f,0f), 1.0f ).setEase( LeanTweenType.easeInOutBounce );<br>
+	* LTDescr descr = LeanTween.moveing( cube, Vector3.up, new Vector3(1f,3f,0f), 1.0f ).setEase( LeanTweenType.easeInOutBounce );<br>
 	* // Later your want to change your destination or your destiation is constantly moving<br>
 	* descr.setTo( new Vector3(5f,10f,3f) );<br>
 	*/
@@ -1733,7 +1733,7 @@ public class LTDescr
 	* @param {Vector3} from:Vector3 the point you would like the tween to start at
 	* @return {LTDescr} LTDescr an object that distinguishes the tween
 	* @example
-	* LTDescr descr = LeanTween.move( cube, Vector3.up, new Vector3(1f,3f,0f), 1.0f ).setFrom( new Vector3(5f,10f,3f) );<br>
+	* LTDescr descr = LeanTween.moveing( cube, Vector3.up, new Vector3(1f,3f,0f), 1.0f ).setFrom( new Vector3(5f,10f,3f) );<br>
 	*/
 	public LTDescr setFrom( Vector3 from ){
 		if(this.trans){
@@ -2126,7 +2126,7 @@ public class LTDescr
 	* @param {bool} doesOrient:bool whether the gameobject will orient to the path it is animating along
 	* @return {LTDescr} LTDescr an object that distinguishes the tween
 	* @example
-	* LeanTween.move( ltLogo, path, 1.0f ).setEase(LeanTweenType.easeOutQuad).setOrientToPath(true).setAxis(Vector3.forward);<br>
+	* LeanTween.moveing( ltLogo, path, 1.0f ).setEase(LeanTweenType.easeOutQuad).setOrientToPath(true).setAxis(Vector3.forward);<br>
 	*/
 	public LTDescr setOrientToPath( bool doesOrient ){
 		if(this.type==TweenAction.MOVE_CURVED || this.type==TweenAction.MOVE_CURVED_LOCAL){
@@ -2145,7 +2145,7 @@ public class LTDescr
 	* @param {bool} doesOrient:bool whether the gameobject will orient to the path it is animating along
 	* @return {LTDescr} LTDescr an object that distinguishes the tween
 	* @example
-	* LeanTween.move( ltLogo, path, 1.0f ).setEase(LeanTweenType.easeOutQuad).setOrientToPath2d(true).setAxis(Vector3.forward);<br>
+	* LeanTween.moveing( ltLogo, path, 1.0f ).setEase(LeanTweenType.easeOutQuad).setOrientToPath2d(true).setAxis(Vector3.forward);<br>
 	*/
 	public LTDescr setOrientToPath2d( bool doesOrient2d ){
 		setOrientToPath(doesOrient2d);

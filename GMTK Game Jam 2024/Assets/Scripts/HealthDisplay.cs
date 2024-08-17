@@ -40,10 +40,9 @@ public class HealthDisplay : MonoBehaviour
     {
         float fill_Health = healthBar.fillAmount; // bar for health
         float fill_Change = changeHealthBar.fillAmount; // bar for chip away effect
-        float fill_Heal = healHealthBar.fillAmount; // bar for acumilated healing
+        float fill_Heal = healHealthBar.fillAmount; // bar for accumulated healing
 
         float healthFraction = healthSystem.currentHealth / healthSystem.maxHealth;
-        Debug.Log(healthFraction);
         
 
 

@@ -10,6 +10,7 @@ public class HealthSystem : MonoBehaviour
     public float maxHealth;
     public UnityEvent OnDamaged;
     public UnityEvent OnHealed;
+    public UnityEvent OnDeath;
     private void Awake()
     {
         currentHealth = maxHealth;
@@ -19,11 +20,16 @@ public class HealthSystem : MonoBehaviour
     {
         currentHealth -= damage;
         OnDamaged.Invoke();
+        if(currentHealth <= 0) OnDeath.Invoke();
     }
     [Button]
     public void Heal(float amount)
     {
         currentHealth += amount;
         OnHealed.Invoke();
+    }
+    public void DestroyGameObject()
+    {
+        Destroy(gameObject);
     }
 }

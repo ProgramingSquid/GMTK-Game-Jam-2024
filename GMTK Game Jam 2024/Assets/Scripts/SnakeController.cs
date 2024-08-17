@@ -23,7 +23,7 @@ public class SnakeController : MonoBehaviour
     }
     private void Update()
     {
-        while (segmentPoses.Count < segmentAmount) { segmentPoses.Add(new(Instantiate(segmentPrefab))); }
+        while (segmentPoses.Count < segmentAmount) { segmentPoses.Add(new(Instantiate(segmentPrefab, transform.parent))); }
         while (segmentPoses.Count > segmentAmount) { Destroy(segmentPoses[segmentPoses.Count - 1].gameObject); segmentPoses.Remove(segmentPoses[segmentPoses.Count - 1]); }
 
         segmentPoses[0].gameObject.GetComponent<Rigidbody2D>().position = targetDir.position;
@@ -36,6 +36,11 @@ public class SnakeController : MonoBehaviour
         }
         lineRenderer.SetPositions(segmentPoses.ConvertAll(item => item.gameObject.transform.position).ToArray());
     }
+    public void AddSegment()
+    {
+        segmentAmount++;
+    }
+
     public class segment
     {
         public GameObject gameObject;
