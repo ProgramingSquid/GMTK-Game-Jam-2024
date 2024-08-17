@@ -9,10 +9,13 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody2D rb;
     public float flyForce = 1;
     public float dashForce = 2;
+    public static PlayerMovement player;
+    public Vector3 aimPos;
     Input inputs;
 
     void Awake()
     {
+        if (player == null) { player = this; }
         inputs = new();   
     }
 
@@ -24,10 +27,9 @@ public class PlayerMovement : MonoBehaviour
 
     public void Aim(UnityEngine.InputSystem.InputAction.CallbackContext context)
     {
-        //To Do:
         var screenPos = context.ReadValue<Vector2>();
-        var pos = camera.ScreenToWorldPoint(screenPos);
-        var dir = transform.position - pos;
+        aimPos = camera.ScreenToWorldPoint(screenPos);
+        var dir =  aimPos - transform.position;
         var angle = Mathf.Rad2Deg * Mathf.Atan2(dir.y, dir.x);
         Debug.Log(angle);
         transform.rotation = Quaternion.Euler(0, 0, angle);
