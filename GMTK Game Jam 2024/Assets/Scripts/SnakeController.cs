@@ -9,7 +9,7 @@ public class SnakeController : MonoBehaviour
 {
     public int segmentAmount;
     public LineRenderer lineRenderer;
-    public GameObject[] segmentPoses;
+    public List<segment> segmentPoses = new();
     Vector2[] segmentV;
 
     public GameObject segmentPrefab;
@@ -20,25 +20,30 @@ public class SnakeController : MonoBehaviour
     private void Start()
     {
         lineRenderer.positionCount = segmentAmount;
-        segmentPoses = new GameObject[segmentAmount];
-        segmentV = new Vector2[segmentAmount];
-
-        for (int i = 0; i < segmentPoses.Length; i++) 
-        { 
-            segmentPoses[i] = Instantiate(segmentPrefab); 
-        }
-
     }
     private void Update()
     {
-        segmentPoses[0].transform.position = targetDir.position;
+        while (segmentPoses.Count < segmentAmount) { segmentPoses.Add(new(Instantiate(segmentPrefab))); }
+        while (segmentPoses.Count > segmentAmount) { Destroy(segmentPoses[segmentPoses.Count - 1].gameObject); segmentPoses.Remove(segmentPoses[segmentPoses.Count - 1]); }
 
-        for (int i = 1; i < segmentPoses.Length; i++)
+        segmentPoses[0].gameObject.GetComponent<Rigidbody2D>().position = targetDir.position;
+
+        for (int i = 1; i < segmentPoses.Count; i++)
         {
-            Vector2 position = segmentPoses[i].GetComponent<Rigidbody2D>().position;
-            Vector2 previousPosition = segmentPoses[i - 1].GetComponent<Rigidbody2D>().position;
-            segmentPoses[i].GetComponent<Rigidbody2D>().position = Vector2.SmoothDamp(position, previousPosition + (Vector2)(targetDir.right * targetDist), ref segmentV[i], smoothSpeed);
+            Vector2 position = segmentPoses[i].gameObject.GetComponent<Rigidbody2D>().position;
+            Vector2 previousPosition = segmentPoses[i - 1].gameObject.GetComponent<Rigidbody2D>().position;
+            segmentPoses[i].gameObject.GetComponent<Rigidbody2D>().position = Vector2.SmoothDamp(position, previousPosition + (Vector2)(targetDir.right * targetDist), ref segmentPoses[i].velocity, smoothSpeed);
         }
-        lineRenderer.SetPositions(Array.ConvertAll(segmentPoses, item => item.transform.position));
+        lineRenderer.SetPositions(segmentPoses.ConvertAll(item => item.gameObject.transform.position).ToArray());
+    }
+    public class segment
+    {
+        public GameObject gameObject;
+        public Vector2 velocity;
+
+        public segment(GameObject gameObject)
+        {
+            this.gameObject = gameObject;
+        }
     }
 }
