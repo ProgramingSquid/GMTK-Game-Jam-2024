@@ -12,13 +12,11 @@ GameObject:
   - component: {fileID: 9202522421363696991}
   - component: {fileID: 138929870729335846}
   - component: {fileID: -9088103311612321322}
-  - component: {fileID: 4150824315696259423}
-  - component: {fileID: 163912921846513477}
   - component: {fileID: 437003617202362051}
   - component: {fileID: 7630948586276867291}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SnakeSegment
-  m_TagString: Untagged
+  m_TagString: SnakeSegment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -127,43 +125,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &4150824315696259423
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6080812652320546031}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aff4b8fef658e934899b295e9beaa958, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentHealth: 5
-  maxHealth: 5
-  OnDamaged:
-    m_PersistentCalls:
-      m_Calls: []
-  OnHealed:
-    m_PersistentCalls:
-      m_Calls: []
-  OnDeath:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &163912921846513477
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6080812652320546031}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a523e91233c5663418d524f5dc88b9a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthSystem: {fileID: 4150824315696259423}
-  scale: 0
 --- !u!114 &437003617202362051
 MonoBehaviour:
   m_ObjectHideFlags: 0

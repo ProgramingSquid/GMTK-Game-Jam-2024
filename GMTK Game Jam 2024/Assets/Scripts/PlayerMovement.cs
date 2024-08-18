@@ -9,6 +9,8 @@ public class PlayerMovement : MonoBehaviour
     public Camera camera;
     public Rigidbody2D rb;
     public float maxSpeed;
+    public float rotSpeed;
+    Quaternion targetRotation;
 
     public float moveForce = 1;
     bool moving;
@@ -24,20 +26,21 @@ public class PlayerMovement : MonoBehaviour
 
     public static PlayerMovement player;
     public Vector3 aimPos;
-    Input inputs;
 
     void Awake()
     {
         dashes = maxDashes;
         flyTimer = flyCoolDown;
 
-        if (player == null) { player = this; }
-        inputs = new();   
+        if (player == null) { player = this; } 
     }
 
     // Update is called once per frame
     void Update()
     {
+
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotSpeed * Time.deltaTime);
+
         if (moving)
         {
             Debug.Log(movement);
@@ -53,7 +56,7 @@ public class PlayerMovement : MonoBehaviour
         aimPos = camera.ScreenToWorldPoint(screenPos);
         var dir =  aimPos - transform.position;
         var angle = Mathf.Rad2Deg * Mathf.Atan2(dir.y, dir.x);
-        transform.rotation = Quaternion.Euler(0, 0, angle);
+        targetRotation = Quaternion.Euler(0, 0, angle);
     }
 
     public void Dash(UnityEngine.InputSystem.InputAction.CallbackContext context)

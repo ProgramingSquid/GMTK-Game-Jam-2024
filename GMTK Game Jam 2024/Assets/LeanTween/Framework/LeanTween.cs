@@ -1509,7 +1509,7 @@ public class LeanTween : MonoBehaviour {
     * 
     * @method LeanTween.rotate
     * @param {GameObject} GameObject gameObject Gameobject that you wish to rotate
-    * @param {Vector3} Vector3 to The final rotation with which to rotate to
+    * @param {Vector3} Vector3 to The final targetRotation with which to rotate to
     * @param {float} float time The time to complete the tween in
     * @return {LTDescr} LTDescr an object that distinguishes the tween
     * @example LeanTween.rotate(cube, new Vector3(180f,30f,0f), 1.5f);
@@ -1524,7 +1524,7 @@ public class LeanTween : MonoBehaviour {
     * 
     * @method LeanTween.rotate
     * @param {LTRect} ltRect:LTRect LTRect that you wish to rotate
-    * @param {float} to:float The final rotation with which to rotate to
+    * @param {float} to:float The final targetRotation with which to rotate to
     * @param {float} time:float The time to complete the tween in
     * @param {Array} optional:Array Object Array where you can pass <a href="#optional">optional items</a>.
     * @return {LTDescr} LTDescr an object that distinguishes the tween
@@ -1542,8 +1542,8 @@ public class LeanTween : MonoBehaviour {
     * 
     * @method LeanTween.rotateLocal
     * @param {GameObject} gameObject:GameObject Gameobject that you wish to rotate
-    * @param {Vector3} to:Vector3 The final rotation with which to rotate to
-    * @param {float} time:float The time to complete the rotation in
+    * @param {Vector3} to:Vector3 The final targetRotation with which to rotate to
+    * @param {float} time:float The time to complete the targetRotation in
     * @return {LTDescr} LTDescr an object that distinguishes the tween
     */
     public static LTDescr rotateLocal(GameObject gameObject, Vector3 to, float time){
@@ -1555,8 +1555,8 @@ public class LeanTween : MonoBehaviour {
     * 
     * @method LeanTween.rotateX
     * @param {GameObject} GameObject Gameobject that you wish to rotate
-    * @param {float} to:float The final x-axis rotation with which to rotate
-    * @param {float} time:float The time to complete the rotation in
+    * @param {float} to:float The final x-axis targetRotation with which to rotate
+    * @param {float} time:float The time to complete the targetRotation in
     * @return {LTDescr} LTDescr an object that distinguishes the tween
     */
     public static LTDescr rotateX(GameObject gameObject, float to, float time){
@@ -1568,8 +1568,8 @@ public class LeanTween : MonoBehaviour {
     * 
     * @method LeanTween.rotateY
     * @param {GameObject} GameObject Gameobject that you wish to rotate
-    * @param {float} to:float The final y-axis rotation with which to rotate
-    * @param {float} time:float The time to complete the rotation in
+    * @param {float} to:float The final y-axis targetRotation with which to rotate
+    * @param {float} time:float The time to complete the targetRotation in
     * @return {LTDescr} LTDescr an object that distinguishes the tween
     */
     public static LTDescr rotateY(GameObject gameObject, float to, float time){
@@ -1581,8 +1581,8 @@ public class LeanTween : MonoBehaviour {
     * 
     * @method LeanTween.rotateZ
     * @param {GameObject} GameObject Gameobject that you wish to rotate
-    * @param {float} to:float The final z-axis rotation with which to rotate
-    * @param {float} time:float The time to complete the rotation in
+    * @param {float} to:float The final z-axis targetRotation with which to rotate
+    * @param {float} time:float The time to complete the targetRotation in
     * @return {LTDescr} LTDescr an object that distinguishes the tween
     */
     public static LTDescr rotateZ(GameObject gameObject, float to, float time){
@@ -1596,7 +1596,7 @@ public class LeanTween : MonoBehaviour {
     * @param {GameObject} gameObject:GameObject Gameobject that you wish to rotate
     * @param {Vector3} vec:Vector3 axis in which to rotate around ex: Vector3.up
     * @param {float} degrees:float the degrees in which to rotate
-    * @param {float} time:float time The time to complete the rotation in
+    * @param {float} time:float time The time to complete the targetRotation in
     * @return {LTDescr} LTDescr an object that distinguishes the tween
     * @example
     * <i>Example:</i><br />
@@ -1613,7 +1613,7 @@ public class LeanTween : MonoBehaviour {
     * @param {GameObject} gameObject:GameObject Gameobject that you wish to rotate
     * @param {Vector3} vec:Vector3 axis in which to rotate around ex: Vector3.up
     * @param {float} degrees:float the degrees in which to rotate
-    * @param {float} time:float time The time to complete the rotation in
+    * @param {float} time:float time The time to complete the targetRotation in
     * @return {LTDescr} LTDescr an object that distinguishes the tween
     * @example
     * <i>Example:</i><br />
@@ -3060,7 +3060,7 @@ public class LTBezierPath {
     * @method place
     * @param {Transform} transform:Transform the transform of the object you wish to place along the path
     * @param {float} ratio:float ratio of the point along the path you wish to receive (0-1)
-    * @param {Vector3} rotation:Vector3 the direction in which to place the transform ex: Vector3.up
+    * @param {Vector3} targetRotation:Vector3 the direction in which to place the transform ex: Vector3.up
     * @example
     * ltPath.place( transform, 0.6f, Vector3.left );
     */
@@ -3091,7 +3091,7 @@ public class LTBezierPath {
     * @method placeLocal
     * @param {Transform} transform:Transform the transform of the object you wish to place along the path
     * @param {float} ratio:float ratio of the point along the path you wish to receive (0-1)
-    * @param {Vector3} rotation:Vector3 the direction in which to place the transform ex: Vector3.up
+    * @param {Vector3} targetRotation:Vector3 the direction in which to place the transform ex: Vector3.up
     * @example
     * ltPath.placeLocal( transform, 0.6f, Vector3.left );
     */
@@ -3389,7 +3389,7 @@ public class LTSpline {
     * @method place
     * @param {Transform} transform:Transform the transform of the object you wish to place along the path
     * @param {float} ratio:float ratio of the point along the path you wish to receive (0-1)
-    * @param {Vector3} rotation:Vector3 the direction in which to place the transform ex: Vector3.up
+    * @param {Vector3} targetRotation:Vector3 the direction in which to place the transform ex: Vector3.up
     * @example
     * ltPath.place( transform, 0.6f, Vector3.left );
     */
@@ -3421,7 +3421,7 @@ public class LTSpline {
     * @method placeLocal
     * @param {Transform} transform:Transform the transform of the object you wish to place along the path
     * @param {float} ratio:float ratio of the point along the path you wish to receive (0-1)
-    * @param {Vector3} rotation:Vector3 the direction in which to place the transform ex: Vector3.up
+    * @param {Vector3} targetRotation:Vector3 the direction in which to place the transform ex: Vector3.up
     * @example
     * ltPath.placeLocal( transform, 0.6f, Vector3.left );
     */
@@ -3612,7 +3612,7 @@ public class LTSpline {
 * @param {float} width:float Width
 * @param {float} height:float Height
 * @param {float} alpha:float (Optional) initial alpha amount (0-1)
-* @param {float} rotation:float (Optional) initial rotation in degrees (0-360) 
+* @param {float} targetRotation:float (Optional) initial targetRotation in degrees (0-360) 
 */
 
 [System.Serializable]
@@ -3759,7 +3759,7 @@ public class LTRect : System.Object{
                 if(rotateFinished){
                     rotateFinished = false;
                     rotateEnabled = false;
-                    //this.rotation = 0.0f;
+                    //this.targetRotation = 0.0f;
                     pivot = Vector2.zero;
                 }else{
                     GUIUtility.RotateAroundPivot(rotation, pivot);

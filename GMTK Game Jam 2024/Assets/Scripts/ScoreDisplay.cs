@@ -5,6 +5,7 @@ using TMPro;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class ScoreDisplay : MonoBehaviour
 {
@@ -27,7 +28,7 @@ public class ScoreDisplay : MonoBehaviour
 
     public void PlayerDeath(float delay)
     {
-        PlayerMovement.player.enabled = false;
+        PlayerMovement.player.gameObject.GetComponent<PlayerInput>().enabled = false;
         Invoke("playerDeath", delay);
     }
     void playerDeath()
