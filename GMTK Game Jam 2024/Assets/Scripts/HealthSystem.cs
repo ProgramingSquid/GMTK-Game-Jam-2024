@@ -8,19 +8,17 @@ public class HealthSystem : MonoBehaviour
 {
     public float currentHealth;
     public float maxHealth;
+    public float minHealth = .075f;
     public UnityEvent OnDamaged;
     public UnityEvent OnHealed;
     public UnityEvent OnDeath;
-    private void Awake()
-    {
-        currentHealth = maxHealth;
-    }
+
     [Button]
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;
         OnDamaged.Invoke();
-        if(currentHealth <= 0) OnDeath.Invoke();
+        if(currentHealth <= minHealth) OnDeath.Invoke();
     }
     [Button]
     public void Heal(float amount)

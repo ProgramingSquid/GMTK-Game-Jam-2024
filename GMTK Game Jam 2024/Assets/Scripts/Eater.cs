@@ -15,9 +15,17 @@ public class Eater : MonoBehaviour
         if(eatable == null) return;
 
         var health = eatable.healthSystem;
-
-
-        if (health.maxHealth > healthSystem.currentHealth) { health.TakeDamage(healthSystem.currentHealth); OnBite.Invoke(); }
-        else { OnEat.Invoke(); health.TakeDamage(healthSystem.currentHealth); }
+        health.TakeDamage(healthSystem.currentHealth); 
+        OnEat.Invoke(); 
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        collision.gameObject.TryGetComponent<Eatable>(out Eatable eatable);
+        if (eatable == null) return;
+
+        var health = eatable.healthSystem;
+        health.TakeDamage(healthSystem.currentHealth);
+        OnBite.Invoke();
+    }
+
 }

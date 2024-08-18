@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 4421993132751721384}
   - component: {fileID: 4421993132751721385}
   - component: {fileID: 4772705507512024026}
+  - component: {fileID: 3087401645101366743}
+  - component: {fileID: 8205757184960942188}
   m_Layer: 0
   m_Name: FoodChunk
   m_TagString: Untagged
@@ -126,6 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e285a702ae4c6747abb3aed9eb061f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Collider: {fileID: 4421993132751721387}
   healthSystem: {fileID: 4421993132751721385}
   scale: 0
 --- !u!114 &4421993132751721385
@@ -142,6 +145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 10
   maxHealth: 10
+  minHealth: 0.075
   OnDamaged:
     m_PersistentCalls:
       m_Calls: []
@@ -188,3 +192,55 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points: 1
+--- !u!114 &3087401645101366743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4421993132751721390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 569dbd50f2490904294d77c62aac450a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthSystem: {fileID: 4421993132751721385}
+  health: 40
+  bias:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.25
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &8205757184960942188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4421993132751721390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a523e91233c5663418d524f5dc88b9a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthSystem: {fileID: 4421993132751721385}
+  scale: 0
