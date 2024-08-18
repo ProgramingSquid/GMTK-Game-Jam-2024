@@ -59,6 +59,7 @@ public class ScoreDisplay : MonoBehaviour
             scoreCounter.SetActive(true);
             finalScore.gameObject.SetActive(false);
             startScreen.SetActive(false);
+            SpawnManager.instance.Spawn();
         }
     }
 

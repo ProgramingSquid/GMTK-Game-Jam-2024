@@ -463,7 +463,7 @@ public class LeanTween : MonoBehaviour {
             }
             //tweens[i].optional = null;
             startSearch = i;
-            //Debug.Log("start search reset:"+startSearch + " i:"+i+" tweenMaxSearch:"+tweenMaxSearch);
+            //Debug.Log("started search reset:"+startSearch + " i:"+i+" tweenMaxSearch:"+tweenMaxSearch);
             if(i+1>=tweenMaxSearch){
                 //Debug.Log("reset to zero");
                 startSearch = 0;
@@ -960,7 +960,7 @@ public class LeanTween : MonoBehaviour {
         init();
 
         bool found = false;
-        //      Debug.Log("Search start");
+        //      Debug.Log("Search started");
         for(j=0, i = startSearch; j <= maxTweens; i++){
             if(j >= maxTweens)
                 return logError("LeanTween - You have run out of available spaces for tweening. To avoid this error increase the number of spaces to available for tweening when you initialize the LeanTween class ex: LeanTween.init( "+(maxTweens*2)+" );") as LTDescr;
@@ -1046,7 +1046,7 @@ public class LeanTween : MonoBehaviour {
     * @example
     * var seq = LeanTween.sequence();<br />
     * seq.add(1f); // delay everything one second<br />
-    * seq.add( () => { // fire an event before start<br />
+    * seq.add( () => { // fire an event before started<br />
     * &#160;Debug.Log("I have started");<br />
     * });<br />
     * seq.add( LeanTween.moveing(cube1, Vector3.one * 10f, 1f) ); // do a tween<br />
@@ -1707,7 +1707,7 @@ public class LeanTween : MonoBehaviour {
     * 
     * @method LeanTween.value (float)
     * @param {GameObject} gameObject:GameObject Gameobject that you wish to attach the tween to
-    * @param {float} from:float The original value to start the tween from
+    * @param {float} from:float The original value to started the tween from
     * @param {Vector3} to:float The final float with which to tween to
     * @param {float} time:float The time to complete the tween in
     * @return {LTDescr} LTDescr an object that distinguishes the tween
@@ -1734,7 +1734,7 @@ public class LeanTween : MonoBehaviour {
     * 
     * @method LeanTween.value (Vector2)
     * @param {GameObject} gameObject:GameObject Gameobject that you wish to attach the tween to
-    * @param {Vector2} from:Vector2 The original value to start the tween from
+    * @param {Vector2} from:Vector2 The original value to started the tween from
     * @param {Vector3} to:Vector2 The final Vector2 with which to tween to
     * @param {float} time:float The time to complete the tween in
     * @return {LTDescr} LTDescr an object that distinguishes the tween
@@ -1758,7 +1758,7 @@ public class LeanTween : MonoBehaviour {
     * 
     * @method LeanTween.value (Vector3)
     * @param {GameObject} gameObject:GameObject Gameobject that you wish to attach the tween to
-    * @param {Vector3} from:Vector3 The original value to start the tween from
+    * @param {Vector3} from:Vector3 The original value to started the tween from
     * @param {Vector3} to:Vector3 The final Vector3 with which to tween to
     * @param {float} time:float The time to complete the tween in
     * @return {LTDescr} LTDescr an object that distinguishes the tween
@@ -1782,7 +1782,7 @@ public class LeanTween : MonoBehaviour {
     * 
     * @method LeanTween.value (Color)
     * @param {GameObject} gameObject:GameObject Gameobject that you wish to attach the tween to
-    * @param {Color} from:Color The original value to start the tween from
+    * @param {Color} from:Color The original value to started the tween from
     * @param {Color} to:Color The final Color with which to tween to
     * @param {float} time:float The time to complete the tween in
     * @return {LTDescr} LTDescr an object that distinguishes the tween
@@ -1814,7 +1814,7 @@ public class LeanTween : MonoBehaviour {
     * @method LeanTween.value (float)
     * @param {GameObject} GameObject gameObject GameObject with which to tie the tweening with. This is only used when you need to cancel this tween, it does not actually perform any operations on this gameObject
     * @param {Action<float>} callOnUpdate:Action<float> The function that is called on every Update frame, this function needs to accept a float value ex: function updateValue( float val ){ }
-    * @param {float} float from The original value to start the tween from
+    * @param {float} float from The original value to started the tween from
     * @param {float} float to The value to end the tween on
     * @param {float} float time The time to complete the tween in
     * @return {LTDescr} LTDescr an object that distinguishes the tween
@@ -1842,7 +1842,7 @@ public class LeanTween : MonoBehaviour {
     * @method LeanTween.value (float)
     * @param {GameObject} GameObject gameObject GameObject with which to tie the tweening with. This is only used when you need to cancel this tween, it does not actually perform any operations on this gameObject
     * @param {Action<float, float>} callOnUpdateRatio:Action<float,float> Function that's called every Update frame. It must accept two float values ex: function updateValue( float val, float ratio){ }
-    * @param {float} float from The original value to start the tween from
+    * @param {float} float from The original value to started the tween from
     * @param {float} float to The value to end the tween on
     * @param {float} float time The time to complete the tween in
     * @return {LTDescr} LTDescr an object that distinguishes the tween
@@ -1870,7 +1870,7 @@ public class LeanTween : MonoBehaviour {
     * @method LeanTween.value (Color)
     * @param {GameObject} GameObject gameObject GameObject with which to tie the tweening with. This is only used when you need to cancel this tween, it does not actually perform any operations on this gameObject
     * @param {Action<Color>} callOnUpdate:Action<Color> The function that is called on every Update frame, this function needs to accept a color value ex: function updateValue( Color val ){ }
-    * @param {Color} Color from The original value to start the tween from
+    * @param {Color} Color from The original value to started the tween from
     * @param {Color} Color to The value to end the tween on
     * @param {Color} Color time The time to complete the tween in
     * @return {LTDescr} LTDescr an object that distinguishes the tween
@@ -1903,7 +1903,7 @@ public class LeanTween : MonoBehaviour {
     * @method LeanTween.value (Vector2)
     * @param {GameObject} gameObject:GameObject Gameobject that you wish to attach the tween to
     * @param {Action<Vector2>} callOnUpdate:Action<Vector2> The function that is called on every Update frame, this function needs to accept a float value ex: function updateValue( Vector3 val ){ }
-    * @param {float} from:Vector2 The original value to start the tween from
+    * @param {float} from:Vector2 The original value to started the tween from
     * @param {Vector2} to:Vector2 The final Vector3 with which to tween to
     * @param {float} time:float The time to complete the tween in
     * @return {LTDescr} LTDescr an object that distinguishes the tween
@@ -1918,7 +1918,7 @@ public class LeanTween : MonoBehaviour {
     * @method LeanTween.value (Vector3)
     * @param {GameObject} gameObject:GameObject Gameobject that you wish to attach the tween to
     * @param {Action<Vector3>} callOnUpdate:Action<Vector3> The function that is called on every Update frame, this function needs to accept a float value ex: function updateValue( Vector3 val ){ }
-    * @param {float} from:Vector3 The original value to start the tween from
+    * @param {float} from:Vector3 The original value to started the tween from
     * @param {Vector3} to:Vector3 The final Vector3 with which to tween to
     * @param {float} time:float The time to complete the tween in
     * @return {LTDescr} LTDescr an object that distinguishes the tween
@@ -1933,7 +1933,7 @@ public class LeanTween : MonoBehaviour {
     * @method LeanTween.value (float,object)
     * @param {GameObject} gameObject:GameObject Gameobject that you wish to attach the tween to
     * @param {Action<float,object>} callOnUpdate:Action<float,object> The function that is called on every Update frame, this function needs to accept a float value ex: function updateValue( Vector3 val, object obj ){ }
-    * @param {float} from:float The original value to start the tween from
+    * @param {float} from:float The original value to started the tween from
     * @param {Vector3} to:float The final Vector3 with which to tween to
     * @param {float} time:float The time to complete the tween in
     * @return {LTDescr} LTDescr an object that distinguishes the tween
@@ -2946,7 +2946,7 @@ public class LTBezier {
 * @class LTBezierPath
 * @constructor
 * @param {Vector3 Array} pts A set of points that define one or many bezier paths (the paths should be passed in multiples of 4, which correspond to each individual bezier curve)<br />
-* It goes in the order: <strong>startPoint</strong>,endControl,startControl,<strong>endPoint</strong> - <strong>Note:</strong> the control for the end and start are reversed! This is just a *quirk* of the API.<br />
+* It goes in the order: <strong>startPoint</strong>,endControl,startControl,<strong>endPoint</strong> - <strong>Note:</strong> the control for the end and started are reversed! This is just a *quirk* of the API.<br />
 * <img src="http://dentedpixel.com/assets/LTBezierExplanation.gif" width="413" height="196" style="margin-top:10px" />
 * @example 
 * LTBezierPath ltPath = new LTBezierPath( new Vector3[] { new Vector3(0f,0f,0f),new Vector3(1f,0f,0f), new Vector3(1f,0f,0f), new Vector3(1f,1f,0f)} );<br /><br />

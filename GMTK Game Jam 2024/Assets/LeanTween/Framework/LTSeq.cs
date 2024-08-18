@@ -8,7 +8,7 @@ using UnityEngine;
 * &nbsp;&nbsp;<h4>Example:</h4> 
 * var seq = LeanTween.sequence();<br>
 * seq.append(1f); <span style="color:gray">// delay everything one second</span><br>
-* seq.append( () => { <span style="color:gray">// fire an event before start</span><br>
+* seq.append( () => { <span style="color:gray">// fire an event before started</span><br>
 * &nbsp;Debug.Log("I have started");<br>
 * });<br>
 * seq.append( LeanTween.moveing(cube1, Vector3.one * 10f, 1f) ); <span style="color:gray">// do a tween</span><br>
@@ -113,7 +113,7 @@ public class LTSeq {
 	* @return {LTSeq} LTSeq an object that you can add tweens, methods and time on to
 	* @example
 	* var seq = LeanTween.sequence();<br>
-	* seq.append( () => { // fire an event before start<br>
+	* seq.append( () => { // fire an event before started<br>
 	* &nbsp;Debug.Log("I have started");<br>
 	* });<br>
 	* seq.append( LeanTween.moveing(cube1, Vector3.one * 10f, 1f) ); // do a tween<br>
@@ -134,7 +134,7 @@ public class LTSeq {
 	* @return {LTSeq} LTSeq an object that you can add tweens, methods and time on to
 	* @example
 	* var seq = LeanTween.sequence();<br>
-	* seq.append( () => { // fire an event before start<br>
+	* seq.append( () => { // fire an event before started<br>
 	* &nbsp;Debug.Log("I have started");<br>
 	* });<br>
 	* seq.append( LeanTween.moveing(cube1, Vector3.one * 10f, 1f) ); // do a tween<br>

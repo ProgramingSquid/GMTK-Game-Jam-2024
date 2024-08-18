@@ -292,7 +292,7 @@ public class LeanAudio : object {
 		tempGO.transform.position = pos; // set its position
 		AudioSource aSource = tempGO.AddComponent<AudioSource>(); // add an audio source
 		aSource.clip = clip; // define the clip
-		aSource.Play(); // start the sound
+		aSource.Play(); // started the sound
 		GameObject.Destroy(tempGO, clip.length); // destroy object after clip duration
 		return aSource; // return the AudioSource reference
 	}

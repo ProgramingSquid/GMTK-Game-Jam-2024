@@ -1222,7 +1222,7 @@ public class LTDescr
 	}
 
 	/**
-	* Delay the start of a tween
+	* Delay the started of a tween
 	* 
 	* @method setDelay
 	* @param {float} float time The time to complete the tween in
@@ -1730,7 +1730,7 @@ public class LTDescr
 	/**
 	* Set the beginning of the tween
 	* @method setFrom
-	* @param {Vector3} from:Vector3 the point you would like the tween to start at
+	* @param {Vector3} from:Vector3 the point you would like the tween to started at
 	* @return {LTDescr} LTDescr an object that distinguishes the tween
 	* @example
 	* LTDescr descr = LeanTween.moveing( cube, Vector3.up, new Vector3(1f,3f,0f), 1.0f ).setFrom( new Vector3(5f,10f,3f) );<br>
@@ -1768,9 +1768,9 @@ public class LTDescr
 	}
 
 	/**
-	* Set the point of time the tween will start in
+	* Set the point of time the tween will started in
 	* @method setPassed
-	* @param {float} passedTime:float the length of time in seconds the tween will start in
+	* @param {float} passedTime:float the length of time in seconds the tween will started in
 	* @return {LTDescr} LTDescr an object that distinguishes the tween
 	* @example
 	* int tweenId = LeanTween.moveX(gameObject, 5f, 2.0f ).id;<br>
@@ -2211,7 +2211,7 @@ public class LTDescr
 	/**
 	* Set the onComplete method to be called at the beginning of the tween (it will still be called when it is completed as well)
 	* @method setOnCompleteOnStart
-	* @param {bool} isOn:bool does call onComplete at the start of the tween
+	* @param {bool} isOn:bool does call onComplete at the started of the tween
 	* @return {LTDescr} LTDescr an object that distinguishes the tween
 	* @example
 	* LeanTween.delayedCall(gameObject, 2f, ()=>{<br> // Flash an object 5 times

@@ -12,9 +12,11 @@ public class RandomHealth : MonoBehaviour
     private void Start()
     {
         //To Fix...
-        float amount = bias.Evaluate(Random.Range(0, 1)) * health;
+        float time = Random.Range(0f, 1f);
+        float amount = bias.Evaluate(time) * health;
         healthSystem.currentHealth = amount;
-        Debug.Log(amount);
+        Debug.Log($"Amount: {amount}");
+        Debug.Log($"Time: {time}");
     }
 
 }
