@@ -6,6 +6,6 @@ public class ResetOnDeath : MonoBehaviour
 {
     public void RestGame(float delay)
     {
-        FindObjectOfType<ScoreDisplay>().PlayerDeath(delay);
+        ScoreDisplay.instance.PlayerDeath(delay);
     }
 }

@@ -8,14 +8,21 @@ using UnityEngine.SceneManagement;
 
 public class ScoreDisplay : MonoBehaviour
 {
+    public bool startGame = false;
     public TextMeshProUGUI finalScore;
     public TextMeshProUGUI highScore;
     public GameObject scoreCounter;
+    public GameObject startScreen;
+    public static ScoreDisplay instance;
+    int currentScore;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
+        instance = this;
 
+        currentScore = ScoreManager.instance.score;
+        SaveHighScore(ScoreManager.instance.score);
     }
 
     public void PlayerDeath(float delay)
@@ -24,16 +31,39 @@ public class ScoreDisplay : MonoBehaviour
         Invoke("playerDeath", delay);
     }
     void playerDeath()
-    {
+    {   
+        //Reset Game Scene
         SceneManager.UnloadScene(0);
         SceneManager.LoadScene(0, LoadSceneMode.Additive);
-        //To Do reset Score...
+        startGame = false;
 
-        finalScore.gameObject.SetActive(true);
+        //Set Final Score Text
+        finalScore.text = $"SCORE: {currentScore})";
+
+
+        finalScore.gameObject.SetActive(currentScore > 0? true : false);
         scoreCounter.SetActive(false);
+        startScreen.SetActive(true);
+        
+        SaveHighScore(currentScore);
 
-        int currentScore = FindObjectOfType<ScoreManager>().score;
-        finalScore.SetText(currentScore.ToString());
+        //Reset ScoreCounter
+        ScoreManager.instance.score = 0;
+        ScoreManager.instance.SetText();
+    }
+    private void Update()
+    {
+        currentScore = ScoreManager.instance.score;
+        if (startGame)
+        {
+            scoreCounter.SetActive(true);
+            finalScore.gameObject.SetActive(false);
+            startScreen.SetActive(false);
+        }
+    }
+
+    private void SaveHighScore(int currentScore)
+    {
         string fileName = Application.persistentDataPath + "/HighScore.txt";
         if (File.Exists(fileName))
         {
@@ -44,13 +74,13 @@ public class ScoreDisplay : MonoBehaviour
 
             if (oldHighScore > currentScore)
             {
-                highScore.text = oldHighScore.ToString();
+                highScore.text = $"HIGHSCORE: {oldHighScore}";
                 stream.Close();
 
             }
             else
             {
-                highScore.text = currentScore.ToString();
+                highScore.text = $"HIGHSCORE: {currentScore}";
                 stream.Close();
                 FileStream save = new FileStream(fileName, FileMode.Create);
                 formatter.Serialize(save, currentScore);
@@ -62,6 +92,8 @@ public class ScoreDisplay : MonoBehaviour
         }
         else
         {
+            if(currentScore < 0) { highScore.text = "HIGHSCORE: NONE"; return; }
+
             highScore.text = currentScore.ToString();
             FileStream save = new FileStream(fileName, FileMode.Create);
             BinaryFormatter formatter = new BinaryFormatter();

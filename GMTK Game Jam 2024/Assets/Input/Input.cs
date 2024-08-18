@@ -62,6 +62,15 @@ public partial class @Input : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""StartGame"",
+                    ""type"": ""Button"",
+                    ""id"": ""30a30a4a-fc33-4cf1-91ec-2c6459efd4de"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -130,6 +139,28 @@ public partial class @Input : IInputActionCollection2, IDisposable
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d6e21f70-b288-4183-9a1e-37331312e154"",
+                    ""path"": ""<Keyboard>/anyKey"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""StartGame"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""df140f13-aa88-4876-8dde-135e86f86084"",
+                    ""path"": ""<Mouse>/press"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""StartGame"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -658,6 +689,7 @@ public partial class @Input : IInputActionCollection2, IDisposable
         m_Movment_Fly = m_Movment.FindAction("Fly", throwIfNotFound: true);
         m_Movment_Dash = m_Movment.FindAction("Dash", throwIfNotFound: true);
         m_Movment_Move = m_Movment.FindAction("Move", throwIfNotFound: true);
+        m_Movment_StartGame = m_Movment.FindAction("StartGame", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -733,6 +765,7 @@ public partial class @Input : IInputActionCollection2, IDisposable
     private readonly InputAction m_Movment_Fly;
     private readonly InputAction m_Movment_Dash;
     private readonly InputAction m_Movment_Move;
+    private readonly InputAction m_Movment_StartGame;
     public struct MovmentActions
     {
         private @Input m_Wrapper;
@@ -741,6 +774,7 @@ public partial class @Input : IInputActionCollection2, IDisposable
         public InputAction @Fly => m_Wrapper.m_Movment_Fly;
         public InputAction @Dash => m_Wrapper.m_Movment_Dash;
         public InputAction @Move => m_Wrapper.m_Movment_Move;
+        public InputAction @StartGame => m_Wrapper.m_Movment_StartGame;
         public InputActionMap Get() { return m_Wrapper.m_Movment; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -762,6 +796,9 @@ public partial class @Input : IInputActionCollection2, IDisposable
                 @Move.started -= m_Wrapper.m_MovmentActionsCallbackInterface.OnMove;
                 @Move.performed -= m_Wrapper.m_MovmentActionsCallbackInterface.OnMove;
                 @Move.canceled -= m_Wrapper.m_MovmentActionsCallbackInterface.OnMove;
+                @StartGame.started -= m_Wrapper.m_MovmentActionsCallbackInterface.OnStartGame;
+                @StartGame.performed -= m_Wrapper.m_MovmentActionsCallbackInterface.OnStartGame;
+                @StartGame.canceled -= m_Wrapper.m_MovmentActionsCallbackInterface.OnStartGame;
             }
             m_Wrapper.m_MovmentActionsCallbackInterface = instance;
             if (instance != null)
@@ -778,6 +815,9 @@ public partial class @Input : IInputActionCollection2, IDisposable
                 @Move.started += instance.OnMove;
                 @Move.performed += instance.OnMove;
                 @Move.canceled += instance.OnMove;
+                @StartGame.started += instance.OnStartGame;
+                @StartGame.performed += instance.OnStartGame;
+                @StartGame.canceled += instance.OnStartGame;
             }
         }
     }
@@ -893,6 +933,7 @@ public partial class @Input : IInputActionCollection2, IDisposable
         void OnFly(InputAction.CallbackContext context);
         void OnDash(InputAction.CallbackContext context);
         void OnMove(InputAction.CallbackContext context);
+        void OnStartGame(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

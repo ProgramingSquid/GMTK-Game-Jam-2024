@@ -152,8 +152,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 4772705507512024026}
-        m_TargetAssemblyTypeName: GiveScoreOnDeath, Assembly-CSharp
-        m_MethodName: GiveScore
+        m_TargetAssemblyTypeName: GiveScore, Assembly-CSharp
+        m_MethodName: AddScore
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

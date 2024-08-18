@@ -92,4 +92,12 @@ public class PlayerMovement : MonoBehaviour
         if (dashes >= maxDashes) return;
         dashes++;
     }
+
+    public void StartGame(InputAction.CallbackContext context)
+    {
+        if (!context.started || ScoreDisplay.instance.startGame) return;
+
+        ScoreDisplay.instance.startGame = true;
+        rb.simulated = true;
+    }
 }
