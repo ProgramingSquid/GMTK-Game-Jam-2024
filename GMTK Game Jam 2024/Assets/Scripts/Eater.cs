@@ -15,7 +15,7 @@ public class Eater : MonoBehaviour
         if(eatable == null) return;
 
         var health = eatable.healthSystem;
-        health.TakeDamage(healthSystem.currentHealth); 
+        health.TakeDamage(healthSystem.currentHealth);
         OnBite.Invoke(); 
     }
     private void OnTriggerEnter2D(Collider2D collision)

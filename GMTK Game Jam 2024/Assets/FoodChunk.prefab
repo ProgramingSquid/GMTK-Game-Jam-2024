@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 2239430156080752966}
   - component: {fileID: 8744470766151751994}
   - component: {fileID: 5702184511320878208}
-  - component: {fileID: 4151942223467433173}
   - component: {fileID: 483065121118014384}
   - component: {fileID: 3668179713695573405}
   - component: {fileID: 653153524128679382}
@@ -121,7 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 10
   maxHealth: 10
-  minHealth: 8
+  minHealth: 4.5
   OnDamaged:
     m_PersistentCalls:
       m_Calls: []
@@ -206,29 +205,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &4151942223467433173
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 585651813919100431}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a523e91233c5663418d524f5dc88b9a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthSystem: {fileID: 2239430156080752966}
-  tweenCurve:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  tweenSpeed: 0
-  scale: 0
-  useMaxScale: 0
-  maxScale: 15
 --- !u!114 &483065121118014384
 MonoBehaviour:
   m_ObjectHideFlags: 0
