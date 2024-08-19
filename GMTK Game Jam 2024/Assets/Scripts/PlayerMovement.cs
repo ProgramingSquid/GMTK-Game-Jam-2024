@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Rendering.LookDev;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -114,5 +113,10 @@ public class PlayerMovement : MonoBehaviour
 
         ScoreDisplay.instance.startGame = true;
         rb.simulated = true;
+    }
+    public void QuitGame(UnityEngine.InputSystem.InputAction.CallbackContext context)
+    {
+        if (!context.started) return;
+        ScoreDisplay.instance.QuitAndSaveHighScore();
     }
 }

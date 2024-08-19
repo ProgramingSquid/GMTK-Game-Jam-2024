@@ -6,6 +6,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
+using UnityEditor.Experimental.GraphView;
 
 public class ScoreDisplay : MonoBehaviour
 {
@@ -23,7 +24,9 @@ public class ScoreDisplay : MonoBehaviour
         instance = this;
 
         currentScore = ScoreManager.instance.score;
-        SaveHighScore(ScoreManager.instance.score);
+        SaveHighScore(currentScore);
+
+        SceneManager.LoadScene(1, LoadSceneMode.Additive);
     }
 
     public void PlayerDeath(float delay)
@@ -34,8 +37,8 @@ public class ScoreDisplay : MonoBehaviour
     void playerDeath()
     {   
         //Reset Game Scene
-        SceneManager.UnloadScene(0);
-        SceneManager.LoadScene(0, LoadSceneMode.Additive);
+        SceneManager.UnloadScene(1);
+        SceneManager.LoadScene(1, LoadSceneMode.Additive);
         startGame = false;
 
         //Set Final Score Text
@@ -103,5 +106,15 @@ public class ScoreDisplay : MonoBehaviour
             save.Close();
 
         }
+    }
+
+    public void QuitAndSaveHighScore()
+    {
+        SaveHighScore(currentScore);
+        if (Application.isEditor)
+        {
+            Debug.Log("Quit");
+        }
+        else { Application.Quit(); }
     }
 }
