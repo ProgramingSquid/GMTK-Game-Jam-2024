@@ -16,7 +16,7 @@ public class Eater : MonoBehaviour
 
         var health = eatable.healthSystem;
         health.TakeDamage(healthSystem.currentHealth); 
-        OnEat.Invoke(); 
+        OnBite.Invoke(); 
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -25,7 +25,7 @@ public class Eater : MonoBehaviour
 
         var health = eatable.healthSystem;
         health.TakeDamage(healthSystem.currentHealth);
-        OnBite.Invoke();
+        OnEat.Invoke();
     }
 
 }

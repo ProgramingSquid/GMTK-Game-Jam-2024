@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6247407140794176317}
   - component: {fileID: 6518429478838458117}
-  - component: {fileID: 8159611345541928969}
   - component: {fileID: 8329119638977862535}
   - component: {fileID: 2239430156080752966}
   - component: {fileID: 8744470766151751994}
@@ -18,6 +17,7 @@ GameObject:
   - component: {fileID: 4151942223467433173}
   - component: {fileID: 483065121118014384}
   - component: {fileID: 3668179713695573405}
+  - component: {fileID: 653153524128679382}
   m_Layer: 0
   m_Name: FoodChunk
   m_TagString: Untagged
@@ -81,8 +81,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 38133ec1616863149b6d2f3e5386c79f, type: 3}
+  m_Color: {r: 0.6320754, g: 0.08646317, b: 0.08646317, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -92,32 +92,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &8159611345541928969
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 585651813919100431}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 6200000, guid: f9de1579342f5ca488f0c3bbd7bf2622, type: 2}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!114 &8329119638977862535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,7 +104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e285a702ae4c6747abb3aed9eb061f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Collider: {fileID: 8159611345541928969}
+  Collider: {fileID: 653153524128679382}
   healthSystem: {fileID: 2239430156080752966}
   scale: 0
 --- !u!114 &2239430156080752966
@@ -147,7 +121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 10
   maxHealth: 10
-  minHealth: 0.075
+  minHealth: 8
   OnDamaged:
     m_PersistentCalls:
       m_Calls: []
@@ -213,7 +187,7 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.25
+      value: 0.33
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -245,7 +219,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthSystem: {fileID: 2239430156080752966}
+  tweenCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  tweenSpeed: 0
   scale: 0
+  useMaxScale: 0
+  maxScale: 15
 --- !u!114 &483065121118014384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -296,3 +279,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!58 &653153524128679382
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 585651813919100431}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: f9de1579342f5ca488f0c3bbd7bf2622, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5

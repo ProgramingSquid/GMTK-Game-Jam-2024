@@ -6,13 +6,15 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public AudioSource audio;
     public Camera camera;
     public Rigidbody2D rb;
     public float maxSpeed;
     public float rotSpeed;
     Quaternion targetRotation;
 
-    public float moveForce = 1;
+    public float airMoveForce = 1;
+    public float constantMoveForce = 2;
     bool moving;
     Vector2 movement;
 
@@ -23,6 +25,8 @@ public class PlayerMovement : MonoBehaviour
     public float dashForce = 2;
     public int maxDashes = 2;
     public int dashes = 2;
+    public AudioClip dash;
+    public AudioClip dashFail;
 
     public static PlayerMovement player;
     public Vector3 aimPos;
@@ -38,13 +42,14 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        rb.AddRelativeForce(Vector2.right * constantMoveForce * (1 - Vector2.Dot(transform.right, Vector2.up)) * Time.deltaTime);
 
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotSpeed * Time.deltaTime);
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotSpeed * Time.deltaTime);
 
         if (moving)
         {
             Debug.Log(movement);
-            rb.AddForce(movement * moveForce);
+            rb.AddForce(movement * airMoveForce * Time.deltaTime);
         }
         rb.velocity = rb.velocity.magnitude > maxSpeed?  Vector2.ClampMagnitude(rb.velocity, maxSpeed) : rb.velocity;
         flyTimer -= Time.deltaTime;
@@ -64,8 +69,15 @@ public class PlayerMovement : MonoBehaviour
         if (!context.started) return;
         if (dashes > 0)
         {
+            audio.clip = dash;
+            audio.Play();
             dashes--;
             rb.AddRelativeForce(Vector2.right * dashForce, ForceMode2D.Impulse);
+        }
+        else 
+        {
+            audio.clip = dashFail;
+            audio.Play();
         }
     }
 

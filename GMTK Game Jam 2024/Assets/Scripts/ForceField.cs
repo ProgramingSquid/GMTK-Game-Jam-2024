@@ -4,16 +4,10 @@ using UnityEngine;
 
 public class ForceField : MonoBehaviour
 {
-    //To Implement...
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Vector2 force;
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        
+        collision.attachedRigidbody.AddForce(force);
     }
 }
