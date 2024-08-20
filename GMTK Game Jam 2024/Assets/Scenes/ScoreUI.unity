@@ -963,7 +963,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Made By Tristan Muller
+  m_text: Made By superSewerSquid
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e5bba7adc30d4e54b9b69b254cff4792, type: 2}
   m_sharedMaterial: {fileID: 3582164169539955156, guid: e5bba7adc30d4e54b9b69b254cff4792, type: 2}
